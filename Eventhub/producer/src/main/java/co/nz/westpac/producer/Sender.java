@@ -52,7 +52,7 @@ public class Sender {
         }
         // send the last batch of remaining events
         if (eventDataBatch.getCount() > 0) {
-            log.info("Sending...");
+            log.info("Sending message tp eventHub...");
             producer.send(eventDataBatch);
         }
         producer.close();
