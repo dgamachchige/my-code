@@ -25,6 +25,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation group: 'com.azure', name: 'azure-messaging-eventhubs', version: '5.15.0'
 	implementation group: 'com.azure', name: 'azure-messaging-eventhubs-checkpointstore-blob', version: '1.16.1'
+	implementation 'org.springframework.boot:spring-boot-starter-websocket'
 
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'

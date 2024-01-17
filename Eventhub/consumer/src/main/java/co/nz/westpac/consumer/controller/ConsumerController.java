@@ -1,5 +1,6 @@
-package co.nz.westpac.consumer;
+package co.nz.westpac.consumer.controller;
 
+import co.nz.westpac.consumer.Receiver;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
