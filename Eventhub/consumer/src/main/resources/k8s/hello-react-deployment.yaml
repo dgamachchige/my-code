@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: eventhub-consumer
+  name: eventhub-consumer
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: eventhub-consumer
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: eventhub-consumer
+    spec:
+      containers:
+        - image: dilang/eventhub-consumer:1.0
+          name: evenhub-consumer
+          resources: {}
+status: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: eventhub-consumer
+  name: eventhub-consumer-svc
+spec:
+  ports:
+    - port: 8082
+      protocol: TCP
+      targetPort: 8082
+  selector:
+    app: eventhub-consumer
+  type: NodePort
+status:
+  loadBalancer: {}
