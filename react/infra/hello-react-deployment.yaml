@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: hello-react
+  name: hello-react
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-react
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: hello-react
+    spec:
+      containers:
+      - image: dilang/hello-react
+        name: hello-react
+        resources: {}
+status: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: hello-react
+  name: hello-react-svc
+spec:
+  ports:
+  - port: 3000
+    protocol: TCP
+    targetPort: 3000
+  selector:
+    app: hello-react
+  type: NodePort
+status:
+  loadBalancer: {}
